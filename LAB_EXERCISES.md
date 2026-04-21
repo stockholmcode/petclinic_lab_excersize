@@ -4,6 +4,51 @@ A hands-on workshop exploring AI-powered coding with Claude Code, using the PetC
 
 ## Before You Start
 
+### Pick Your Codebase
+
+Each team picks one starting point. The first three are real, running applications with enough surface area to explore. The fourth is a blank canvas.
+
+#### PetClinic: Java Spring Boot
+
+The canonical Spring PetClinic, the Spring version of "Hello World". Battle-tested reference app maintained by the Spring team, with Thymeleaf views, JPA, and the full Spring Boot stack. Perfect if your team leans Java, or if you want to compare conventions across ecosystems.
+
+- Repo: [github.com/spring-projects/spring-petclinic](https://github.com/spring-projects/spring-petclinic)
+```bash
+git clone https://github.com/spring-projects/spring-petclinic.git
+```
+
+Follow the Java [prerequisites](#prerequisites) and check out the [excersises](#exercise-menu-pet-clinic-projects).
+
+#### PetClinic: .NET 10 Minimal API
+
+A modern port of the classic Java Spring Boot's PetClinic sample to .NET 10 using Minimal APIs, EF Core, and a lightweight frontend. Small enough to grasp in an afternoon, rich enough to do excersices on.
+
+- Repo: [github.com/RKrogh/petclinic](https://github.com/RKrogh/petclinic)
+```bash
+git clone https://github.com/RKrogh/petclinic.git
+```
+
+Follow the .Net [prerequisites](#prerequisites) and check out the [excersises](#exercise-menu-pet-clinic-projects).
+
+#### SCG Classifieds API
+
+A modern take on technical interviews using AI from Stockholm Code Group. Ships with a `specs/interview-tasks.md` file containing assignments in User Story format, designed to be completed in a session. Different domain than PetClinic, similar learning curve.
+
+- Repo: [github.com/stockholmcode/classifieds-api](https://github.com/stockholmcode/classifieds-api)
+```bash
+git clone https://github.com/stockholmcode/classifieds-api.git
+```
+
+Follow the Java [prerequisites](#prerequisites) and check out the [excersises](#exercise-menu-scg-classigieds-api).
+
+#### Something Else Entirely
+
+No clone, no starter, no domain baggage. Start from `dotnet new`, `npm create`, `cargo init`, or whatever fits. The point is to see how Claude handles a cold start versus an existing codebase.
+
+Select what you want and check the [rules](#theme-d-build-from-scratch).
+
+---
+
 ### Prerequisites
 
 | Tool | Windows | macOS | Linux |
@@ -11,11 +56,11 @@ A hands-on workshop exploring AI-powered coding with Claude Code, using the PetC
 | **.NET 10 SDK** | `winget install Microsoft.DotNet.SDK.Preview` | `brew install dotnet-sdk-preview` | [Install script](https://dot.net/v1/dotnet-install.sh) `--channel 10.0` |
 | **Java 21+ & Maven** | `winget install Microsoft.OpenJDK.21` + `winget install Apache.Maven` | `brew install openjdk@21 maven` | `sudo apt install openjdk-21-jdk maven` |
 | **Docker** | `winget install Docker.DockerDesktop` | `brew install --cask docker` | [Docker Engine docs](https://docs.docker.com/engine/install/) |
-| **Git** | `winget install Git.Git` | Pre-installed | Pre-installed |
-| **Claude Code** | Pre-installed for this session | Pre-installed for this session | Pre-installed for this session |
-| **Editor** | VS Code + C# Dev Kit / IntelliJ | Same | Same |
+| **Git** | `winget install Git.Git` | `brew install git` (or Xcode Command Line Tools) | `sudo apt install git` |
+| **Claude Code** | `winget install Anthropic.ClaudeCode` | `brew install --cask claude-code` | `curl -fsSL https://claude.ai/install.sh \| bash` |
+| **Editor** | Your pick: VS Code, Visual Studio, Rider, IntelliJ, Neovim, whatever you're fast in | Same | Same |
 
-You only need the SDK for the stack you choose (.NET or Java, not both).
+You only need the SDK for the stack you choose (.NET or Java, not both). Bring whichever editor you already use day-to-day, the workshop is about Claude, not the IDE.
 
 Verify your setup:
 ```bash
@@ -27,15 +72,6 @@ mvn --version
 docker compose version
 claude --version
 ```
-
-### Pick Your Codebase
-
-Each team picks one starting point:
-
-- **.NET 10 Minimal API**: `git clone https://github.com/RKrogh/petclinic.git`
-- **Java Spring Boot**: `git clone https://github.com/spring-projects/spring-petclinic.git`
-- **SCG Classifieds API**: `git clone https://github.com/stockholmcode/classifieds-api`
-- **Something else entirely**: Start a fresh project if you prefer.
 
 ---
 
